@@ -30,7 +30,7 @@ func main() {
 	input = strings.TrimSuffix(input, "\n")
 
 	if x, err = strconv.ParseFloat(input, 64); err != nil {
-		fmt.Println(err, "x is not an integer.")
+		panic(err)
 	}
 
 	inputReader = bufio.NewReader(os.Stdin)
@@ -38,7 +38,7 @@ func main() {
 	input, err = inputReader.ReadString('\n')
 	input = strings.TrimSuffix(input, "\n")
 	if err != nil {
-		fmt.Printf("The y was: %s", err)
+		panic(err)
 	}
 	if y, err = strconv.ParseFloat(input, 64); err != nil {
 		fmt.Println(input, "y is not an integer.")

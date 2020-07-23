@@ -6,6 +6,7 @@ import (
 
 // Note: There are multiple right ways to implement bisection search/number of steps so your
 // results may not perfectly match those of the test case.
+// 结果有些许误差,这里测试不通过丄
 func TestCountMonth(t *testing.T) {
 
 	var tests = []struct {
