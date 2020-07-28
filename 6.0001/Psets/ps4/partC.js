@@ -85,6 +85,8 @@ class EncryptedSubMessage extends SubMessage {
         res.push({ "text": words, point })
       }
     }
+
+    if (res.length == 0) return `Unable to decrypt ${this.text}`
     return res
   }
 }
