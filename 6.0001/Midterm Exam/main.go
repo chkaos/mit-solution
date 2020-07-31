@@ -13,7 +13,7 @@ import (
 // Hint: Mod (%) by 10 gives you the rightmost digit (126 % 10 is 6),
 // while doing integer division by 10 removes the rightmost digit (126 / 10 is 12).
 // This function has to be recursive; you may not use loops!
-// This function takes in one integer and returns one integer.\
+// This function takes in one integer and returns one integer.
 func Count7(num int) (count int) {
 	if num <= 6 {
 		return 0
@@ -94,7 +94,6 @@ func doFlatten(acc []int, arr interface{}) ([]int, error) {
 }
 
 // Exercise 7:
-
 // L, a list of numbers (n0, n1, n2, ... nk)
 // Returns a function, which when applied to a value x, returns the value
 // n0 * x^k + n1 * x^(k-1) + ... nk * x^0

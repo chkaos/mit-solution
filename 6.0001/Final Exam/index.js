@@ -180,6 +180,9 @@ class Bag extends Container {
   remove(e) {
     if (this.vals[e]) {
       this.vals[e] -= 1
+      if (this.vals[e] == 0) {
+        delete this.vals[e]
+      }
     } else {
       console.log(e, " was not found")
     }
