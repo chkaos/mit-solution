@@ -152,6 +152,56 @@ func isIn(string1, string2 string) bool {
 	return false
 }
 
+func factorial(n int) int {
+	if n == 1 {
+		return n
+	}
+
+	return n * factorial(n-1)
+}
+
+type solver interface {
+	play(int)
+}
+
+// towers is example of type satisfying solver interface
+type towers struct {
+	// an empty struct
+}
+
+// play is sole method required to implement solver type
+func (t *towers) play(n int) {
+	t.moveN(n, "A", "B", "C")
+}
+
+// recursive algorithm
+func (t *towers) moveN(n int, from, to, via string) {
+	if n > 0 {
+		t.moveN(n-1, from, via, to)
+		t.moveM(from, to)
+		t.moveN(n-1, via, to, from)
+	}
+}
+
+// 斐波那契
+func fibL(n int) int {
+	var fib = map[int]int{0: 1, 1: 1}
+
+	if n == 1 || n == 0 {
+		return n
+	}
+
+	for i := 2; i <= n; i++ {
+		fib[i] = fib[i-1] + fib[i-2]
+	}
+
+	return fib[n]
+}
+
+func (t *towers) moveM(from, to string) {
+	fmt.Println("Move disk from rod", from, "to rod", to)
+}
+
 func main() {
 	if res, err := GetBiggestOdd(15, 3, 8); err != nil {
 		fmt.Println(err)
@@ -181,4 +231,13 @@ func main() {
 	fmt.Println("-------------------------")
 	in := isIn("abc", "apple")
 	fmt.Println(in)
+
+	fmt.Println("-------------------------")
+	var t solver
+	t = new(towers) // type towers must satisfy solver interface
+	t.play(4)
+
+	fmt.Println("-------------------------")
+	f := fibL(2)
+	fmt.Println(f)
 }

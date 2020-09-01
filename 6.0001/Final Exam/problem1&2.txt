@@ -5,8 +5,12 @@ false
 Problem 1-2
 The orders of growth of O(n2+1) and O(n5+1) are both polynomial.
 
+true
+
 Problem 1-3
 The complexity of binary search on a sorted list of n items is O(log⁡n).
+
+true
 
 Problem 1-4
 A bisection search algorithm always returns the correct answer when searching for 
@@ -31,11 +35,12 @@ class B(A):
           
 Which of the following is correct?
 
-When a = A() we say that a is an instance of A  
+When a = A() we say that a is an instance of A  (correct)
 When b = B() we say that b is a subclass of A
 Both of the above
 Neither of the above
 
+Both of the above
 
 Problem 2-2
 Consider the function f below. What is its Big O complexity?
@@ -43,13 +48,19 @@ Consider the function f below. What is its Big O complexity?
 def f(n):
     def g(m):
         m = 0
-        for i in range(m):
+        for i in range(m): -> 不执行
             print(m)
     for i in range(n):
         g(n)
 
+O(n)
+
 Problem 2-3
 A dictionary is an immutable object because its keys are immutable.
+
+True
+False because its keys can be mutable
+False because a dictionary is mutable   - correct
 
 Problem 2-4
 Consider the following two functions and select the correct choice below:
@@ -69,7 +80,18 @@ def foo_two(n):
     else: 
         return n*foo_two(n-1)
 
+The worst case Big Oh time complexity of foo_one is worse than the worst case Big Oh 
+time complexity of foo_two.
+The worst case Big Oh time complexity of foo_two is worse than the worst case Big Oh 
+time complexity of foo_one.
+The worst case Big Oh time complexity of foo_one and foo_two are the same.  correct
+Impossible to compare the worst case Big Oh time complexities of the two functions.
 
 Problem 2-5
 The complexity of 1n+n4+4n+4 is
 
+constant
+logarithmic
+linear
+polynomial  - correct
+exponential
