@@ -80,18 +80,18 @@ class R extends Signal {
     this.s = s
   }
   sample(n) {
-    return
+    return this.sig.sample(n-1)
   }
 }
 
-class Rn extends Signal {
-  constructor(s, k) {
+class RN extends Signal {
+  constructor(s, n) {
     super()
     this.s = s
-    this.c = k
+    this.n = n
   }
   sample(n) {
-    return
+    return this.sig.sample(n-this.n)
   }
 }
 

@@ -31,6 +31,7 @@ class SM {
       console.log(`StartState: ${this.state}`)
       let n = inputs.length
       for (let i = 0; i < n; i++) {
+        if(this.done()) break
         console.log("Step: ", i)
         // console.log(" ",  this.constructor.name)
         this.step(inputs[i], verbose)
@@ -38,6 +39,7 @@ class SM {
     } else {
       let outputs = []
       for (let i in inputs) {
+        if(this.done()) return outputs
         outputs.push(this.step(inputs[i]))
       }
       return outputs

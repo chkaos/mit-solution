@@ -1,0 +1,25 @@
+Problem Set 1
+Problem 1-1. [15 points] Asymptotic Practice
+- 概率论中大括号上面一个数，下面一个数, 是组合符号，意思是从9个中选4个。
+(a) f1, f2, f4, f3
+(b) f1, f4, f3, f2
+(c) f4, f3, f2, f1 X     f4, f1, f3, f2
+
+Problem 1-2.[15 points] Recurrence Relation Resolution
+(a) O(2^n) X  O(n)
+(b) O(nlog^2 n) X O(nlog n)
+(c) O(nlog^2 n) X  O(n)
+
+Problem 1-3.[16 points] Peak- Finding Correctness
+(a) correct
+(b) X correct (greedy ascent algorithm)
+(c) X no
+(d) X correct
+
+Problem 1-4. [16 points] Peak-Finding Efficiency
+(a) O(nlog n)
+(b) X O(n^2)
+(c) X O(n)
+(d) X O(dn)
+
+18分 cao

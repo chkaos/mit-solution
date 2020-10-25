@@ -29,6 +29,7 @@ class SM {
       console.log(`StartState: ${this.state}`)
       let n = inputs.length
       for(let i=0; i < n; i++){
+        if(this.done()) break
         console.log("Step: ", i)
         // console.log(" ",  this.constructor.name)
         this.step(inputs[i], verbose)
@@ -36,6 +37,7 @@ class SM {
     } else {
       let outputs = []
       for(let input of inputs ){
+        if(this.done()) break
         outputs.push(this.step(input))
       }
       return outputs
@@ -44,7 +46,11 @@ class SM {
   }
   // 无输入状态机调用run, n为次数
   run(n = 10, verbose = false) {
-    return this.transduce(Array(n).fill(null), verbose)
+    const inputs = []
+    for(let k = 1; k <= n; k ++) {
+      inputs.push(k)
+    }
+    return this.transduce(inputs, verbose)
   }
   getNextValues(state, input) {
     const nextState = this.getNextState(state, input)
@@ -61,7 +67,7 @@ class SM {
 
 class Accumulator extends SM {
   constructor(initialValue) {
-    super(initialValue)
+    super(initialValue || 0)
   }
   // getNextValues(state, input) {
   //   return { state: state + input, output: state + input }
@@ -124,9 +130,7 @@ class Cascade extends SM {
   }
   getNextValues(state, input) {
     const { state: nextState1, output: output1 } = this.sm1.getNextValues(state, input)
-    console.log(output1)
     const res2 = this.sm2.getNextValues(nextState1, output1)
-    console.log(res2)
     return res2
   }
   step(input){
@@ -201,4 +205,4 @@ function makeCounter(init, step) {
 // const c = makeCounter(3, 2)
 // c.run(10, true)
 
-module.exports = { SM, Delay, Cascade, Increment }
+module.exports = { SM, Delay, Cascade,Feedback, Increment, Parallel, Parallel2 }
