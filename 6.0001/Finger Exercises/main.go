@@ -185,13 +185,13 @@ func (t *towers) moveN(n int, from, to, via string) {
 
 // 斐波那契
 func fibL(n int) int {
-	var fib = map[int]int{0: 1, 1: 1}
+	var fib = map[int]int{1: 1, 2: 1}
 
-	if n == 1 || n == 0 {
-		return n
+	if n == 1 || n == 2 {
+		return 1
 	}
 
-	for i := 2; i <= n; i++ {
+	for i := 3; i <= n; i++ {
 		fib[i] = fib[i-1] + fib[i-2]
 	}
 
